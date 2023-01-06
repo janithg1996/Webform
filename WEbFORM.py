@@ -3,8 +3,14 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-# Connect to the database
-cnx = mysql.connector.connect(user='your-username', password='your-password', database='your-database')
+# Connect to the MySQL database
+cnx = mysql.connector.connect(
+    host="mysql",  # Replace with the hostname or IP address of the container running MySQL
+    port=3306,  # Replace with the port number that MySQL is listening on
+    user="root",  # Replace with the username for the MySQL database
+    password="mypassword",  # Replace with the password for the user
+    database="mydatabase"  # Replace with the name of the database you want to connect to
+)
 cursor = cnx.cursor()
 
 # Create the table
@@ -63,4 +69,5 @@ def submit():
   return 'Success!'
 
 if __name__ == '__main__':
-  app.run((host='0.0.0.0',port=8080)
+  while True:
+    app.run(host='0.0.0.0', port=8080)
