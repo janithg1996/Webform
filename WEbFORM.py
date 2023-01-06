@@ -14,15 +14,14 @@ cnx = mysql.connector.connect(
 cursor = cnx.cursor()
 
 # Create the table
-query = """
+QUERY
+    = """
 CREATE TABLE IF NOT EXISTS your-table (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255),
   email VARCHAR(255)
 )
-"""
-cursor.execute(query)
-cnx.commit()
+""" CURSOR.execute(QUERY) cnx.commit()
 
 # Create the form HTML
 form = """
@@ -46,15 +45,10 @@ def display_form():
 def save_to_database(data):
   try:
     # Insert the form data into the database
-    query = "INSERT INTO your-table (name, email) VALUES (%s, %s)"
-    cursor.execute(query, data)
-    cnx.commit()
-  except mysql.connector.Error as err:
+    QUERY
+    = "INSERT INTO your-table (name, email) VALUES (%s, %s)" CURSOR.execute(QUERY, DATA) cnx.commit() except mysql.connector.Error AS err:
     # Print error information
-    print("Error: {}".format(err))
-  finally:
-    cursor.close()
-    cnx.close()
+    print("Error: {}".format(err)) finally: CURSOR.close() cnx.close()
 
 # Get the form data from the request
 def get_form_data(request):
