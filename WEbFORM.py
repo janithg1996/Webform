@@ -64,9 +64,9 @@ def get_form_data(request):
 # Handle the form submission
 @app.route('/submit', methods=['POST'])
 def submit():
-data = get_form_data(request)
-save_to_database(data)
-return "Success"
+    data = get_form_data(request)
+    save_to_database(data)
+    return "Success"
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=9000)
