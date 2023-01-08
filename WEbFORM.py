@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Connect to the MySQL database
 cnx = mysql.connector.connect(
     host="172.105.49.74",  # Replace with the hostname or IP address of the container running MySQL
-    port=5002,  # Replace with the port number that MySQL is listening on
+    port=5006,  # Replace with the port number that MySQL is listening on
     user="root",  # Replace with the username for the MySQL database
     password="V@lery@#23",  # Replace with the password for the user
     database="appdb"  # Replace with the name of the database you want to connect to
